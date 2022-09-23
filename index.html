@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-success">
+    <div class="d-flex">
+      <input
+        type="text"
+        id="exam1"
+        class="form-control mx-2 my-2"
+        placeholder="Exam1"
+        style="width: 200px"
+      />
+
+      <input
+        type="text"
+        id="exam2"
+        class="form-control mx-2 my-2"
+        placeholder="Exam2"
+        style="width: 200px"
+      />
+    </div>
+
+    <input
+      type="text"
+      class="form-control mx-2"
+      id="result"
+      placeholder="Result:"
+      style="width: 415px"
+    />
+
+    <button id="click" class="btn btn-primary mx-2 my-3 text-white">
+      Calculate
+    </button>
+
+    <input type="button" class="btn btn-danger" value="Clear" id="clear">
+
+    <script>
+
+
+      let buton = document.getElementById("click");
+      buton.onclick = function () {
+        let e1 = document.getElementById("exam1").value;
+        let e2 = document.getElementById("exam2").value;
+        let r;
+
+        // 50 ve üzeri ortalama da geçti kaldı hesaplama ------------
+
+        // r =(Number(e1)+Number(e2))/2;
+        // if (r>=50)
+        // r+=" Successful";
+        // else
+        // r+=" Unsuccessful";
+
+
+
+        // 1. sınavın %40 ı + 2. sınavın %60 nı alarak çok iyi--iyi--normal--kötü hesaplama-------------
+
+           r = (Number(e1)*0.40) + (Number(e2)*0.60);
+
+           if(r>=85)
+           r+=" Çok iyi";
+           else if (r>=70)
+           r+=" İyi";
+           else if (r>=50)
+           r+= " Normal";
+           else
+           r+=" Kötü";
+
+        document.getElementById("result").value = r;
+     
+
+
+        // Text kutularında ki metinleri silme 
+
+        document.getElementById("clear").onclick = function () {
+          
+            document.getElementById("exam1").value=" ";
+            document.getElementById("exam2").value=" ";
+            document.getElementById("result").value=" ";
+         
+           
+        }
+      }
+    </script>
+  </body>
+</html>
